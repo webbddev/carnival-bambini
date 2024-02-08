@@ -1,19 +1,8 @@
-'use client';
-
 import { Button } from '@/components/ui/button';
 import { CheckCheck } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect } from 'react';
-import { useShoppingCart } from 'use-shopping-cart';
 
-export default function StripeSuccess() {
-  // Renamed function to follow naming convention
-  const { clearCart } = useShoppingCart();
-
-  useEffect(() => {
-    clearCart();
-  }, [clearCart]); // Added clearCart to the dependency array
-
+export default function stripeSuccess() {
   return (
     <div className='h-screen'>
       <div className='mt-32 md:max-w-[50vw] mx-auto'>
@@ -23,7 +12,7 @@ export default function StripeSuccess() {
             Payment Done!
           </h3>
           <p className='text-gray-600 my-2'>
-            Thank you for your purchase! We hope you enjoy it!
+            Thank you for you pruchase We hope you enjoy it
           </p>
           <p>Have a great day!</p>
 
@@ -35,3 +24,11 @@ export default function StripeSuccess() {
     </div>
   );
 }
+
+// export default function StripeSuccess() {
+//   // Renamed function to follow naming convention
+//   const { clearCart } = useShoppingCart();
+
+//   useEffect(() => {
+//     clearCart();
+//   }, [clearCart]); // Added clearCart to the dependency array
