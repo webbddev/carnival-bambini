@@ -24,11 +24,3 @@ export default function stripeSuccess() {
     </div>
   );
 }
-
-// export default function StripeSuccess() {
-//   // Renamed function to follow naming convention
-//   const { clearCart } = useShoppingCart();
-
-//   useEffect(() => {
-//     clearCart();
-//   }, [clearCart]); // Added clearCart to the dependency array
