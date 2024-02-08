@@ -1,17 +1,16 @@
-'use client'
-
 import { Button } from '@/components/ui/button';
 import { CheckCheck } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useShoppingCart } from 'use-shopping-cart';
 
-export default function stripeSuccess() {
+export default function StripeSuccess() {
+  // Renamed function to follow naming convention
   const { clearCart } = useShoppingCart();
 
   useEffect(() => {
     clearCart();
-  }, []);
+  }, [clearCart]); // Added clearCart to the dependency array
 
   return (
     <div className='h-screen'>
