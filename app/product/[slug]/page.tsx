@@ -25,7 +25,7 @@ async function getData(slug: string) {
 
 export const dynamic = 'force-dynamic';
 
-export default async function ProductPge({
+export default async function ProductPage({
   params,
 }: {
   params: { slug: string };
