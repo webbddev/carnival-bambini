@@ -5,11 +5,17 @@ import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { ShoppingBasket } from 'lucide-react';
 import { useShoppingCart } from 'use-shopping-cart';
+import { ModeToggle } from './ModeToggle';
+import MobileNav from './MobileNav';
 
 const links = [
   {
     name: 'Home',
     href: '/',
+  },
+  {
+    name: 'About',
+    href: '/About',
   },
   {
     name: 'Men',
@@ -22,6 +28,14 @@ const links = [
   {
     name: 'Teens',
     href: '/Teens',
+  },
+  {
+    name: 'Blog',
+    href: '/Blog',
+  },
+  {
+    name: 'Contact Me',
+    href: '/Contact',
   },
 ];
 
@@ -44,14 +58,14 @@ export default function Navbar() {
             <div key={idx}>
               {pathname === link.href ? (
                 <Link
-                  className='text-lg font-semibold text-primary '
+                  className='text-lg font-semibold text-primary dark:text-gray-300'
                   href={link.href}
                 >
                   {link.name}
                 </Link>
               ) : (
                 <Link
-                  className='text-lg font-semibold text-gray-600 transition duration-100 hover:text-primary relative group overflow-hidden'
+                  className='text-lg font-semibold text-gray-600 dark:text-gray-600 transition duration-100 hover:text-primary relative group overflow-hidden'
                   href={link.href}
                 >
                   {link.name}
@@ -67,12 +81,21 @@ export default function Navbar() {
             className='flex flex-col gap-y-1.5 h-12 w-12 sm:h-20 sm:w-20 md:h-24 md:w-24 rounded-none'
             onClick={() => handleCartClick()}
           >
-            <ShoppingBasket />
+            <div className='relative'>
+              <ShoppingBasket />
+              <span className='text-primary absolute top-0 -right-2'>0</span>
+            </div>
             <span className='hidden text-xs font-semibold text-gray-500 sm:block'>
               Cart
             </span>
           </Button>
         </div>
+        
+         <div>
+            <MobileNav />
+          </div>
+
+        <ModeToggle />
       </div>
     </header>
   );
