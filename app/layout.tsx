@@ -9,6 +9,7 @@ import ShoppingCartModal from './components/ShoppingCartModal';
 import { Footer } from './components/Footer';
 // import CartProvider from './components/Providers';
 import { ThemeProvider } from './components/theme-provider';
+import FooterSubscribe from './components/FooterSubscribe';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -38,6 +39,7 @@ export default function RootLayout({
           {/* <Navbar /> */}
           <ShoppingCartModal />
           {children}
+          <FooterSubscribe />
           <Footer />
           {/* </ShoppingCartProvider> */}
           {/* </ThemeProvider> */}

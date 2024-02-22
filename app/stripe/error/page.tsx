@@ -13,12 +13,12 @@ export default function stripeError() {
         </div>
 
         <div className='text-center'>
-          <h3 className='md:text-xl text-base text-gray-700 font-semibold text-center'>
+          <h3 className='md:text-xl text-base text-gray-700 dark:text-gray-200 font-semibold text-center'>
             Something went wrong!
           </h3>
 
           <Button asChild className='mt-5'>
-            <Link href='/'>GO back</Link>
+            <Link href='/'>Back to the homepage</Link>
           </Button>
         </div>
       </div>
