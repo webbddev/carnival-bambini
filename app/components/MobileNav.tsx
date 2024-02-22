@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Library, Indent } from 'lucide-react';
+import { ChevronsDown, ChevronsRight } from 'lucide-react';
 
 const MobileNav = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -29,9 +29,9 @@ const MobileNav = () => {
       {/* button to open/close the mobile menu */}
       <div
         onClick={handleMenuToggle}
-        className='md:hidden text-3xl cursor-pointer ml-4'
+        className='lg:hidden text-3xl cursor-pointer ml-4'
       >
-        <Library className='mr-1' />
+        <ChevronsDown className='mr-1' />
       </div>
 
       {/* mobile menu */}
@@ -39,7 +39,7 @@ const MobileNav = () => {
         ref={menuRef}
         className={`${
           openMenu ? 'opacity-95' : 'opacity-0'
-        } dark:bg-blue-700 bg-white shadow-2xl w-full absolute top-0 right-0 max-w-xs h-screen z-20 md:hidden rounded-l-lg`}
+        } dark:bg-blue-700 bg-white shadow-2xl w-full absolute top-0 right-0 max-w-xs h-screen z-20 lg:hidden rounded-l-lg`}
         style={{
           transition: 'opacity 0.4s ease-in-out',
           pointerEvents: openMenu ? 'auto' : 'none',
@@ -50,7 +50,7 @@ const MobileNav = () => {
           onClick={handleMenuToggle}
           className='text-4xl absolute z-30 left-4 top-14 text-primary dark:text-teal-300 cursor-pointer'
         >
-          <Indent />
+          <ChevronsRight />
         </div>
         {/* menu links */}
         <ul className='h-full flex flex-col justify-center items-center gap-y-8 text-primary dark:text-gray-200 font-primary font-bold text-2xl'>
@@ -61,7 +61,13 @@ const MobileNav = () => {
             <Link href='/about'>About</Link>
           </li>
           <li>
-            <Link href='/men'>Men</Link>
+            <Link href='/Men'>Men</Link>
+          </li>
+          <li>
+            <Link href='/Women'>Women</Link>
+          </li>
+          <li>
+            <Link href='/blog'>Blog</Link>
           </li>
           <li>
             <Link href='/contact'>Contacts</Link>

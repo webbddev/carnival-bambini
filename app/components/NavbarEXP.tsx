@@ -145,7 +145,7 @@ export default function NavbarEXP() {
             </span>
           </Button>
 
-          <div>
+          <div className=''>
             <MobileNav />
           </div>
 
