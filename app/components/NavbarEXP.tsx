@@ -41,7 +41,7 @@ export default function NavbarEXP() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuHovered, setIsMenuHovered] = useState(false); // State to track if the menu is being hovered
   const pathname = usePathname();
-  const { handleCartClick } = useShoppingCart();
+  const { cartCount, handleCartClick } = useShoppingCart();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
@@ -66,7 +66,7 @@ export default function NavbarEXP() {
   }, []);
 
   return (
-    <header className='mb-8 border-b'>
+    <header className='mb-8 border-b shadow-none'>
       <div className='flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl'>
         <Link href='/'>
           <h1 className='text-2xl md:text-4xl font-bold'>
@@ -135,7 +135,10 @@ export default function NavbarEXP() {
           >
             <div className='relative'>
               <ShoppingBasket />
-              <span className='text-primary absolute top-0 -right-2'>0</span>
+              {/* <span className='text-primary absolute top-0 -right-2'>0</span> */}
+              <div className='bg-red-500 w-[16px] h-[16px] absolute -right-3 top-0 rounded-full text-white flex items-center justify-center text-sm font-normal'>
+                {cartCount}
+              </div>
             </div>
             <span className='hidden text-xs font-semibold text-gray-500 sm:block'>
               Cart
