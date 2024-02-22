@@ -10,22 +10,32 @@ interface iAppProps {
 
 export default function ImageGallery({ images }: iAppProps) {
   const [bigImage, setBigImage] = useState(images[0]);
+  const [selectedImage, setSelectedImage] = useState(0);
 
-  const handleSmallImageClick = (image: any) => {
+  const handleSmallImageClick = (image: any, idx: number) => {
     setBigImage(image);
+    setSelectedImage(idx); // Update selectedImage state when a small image is clicked
   };
   return (
     <div className='grid gap-4 lg:grid-cols-5'>
       <div className='order-last flex gap-4 lg:order-none lg:flex-col'>
         {images.map((image: any, idx: any) => (
-          <div key={idx} className='overflow-hidden rounded-lg bg-gray-100'>
+          <div
+            key={idx}
+            className={`overflow-hidden rounded-lg bg-gray-100 ${
+              idx === selectedImage
+                ? 'border-[3px] border-solid border-blue-500'
+                : ''
+            }`}
+          >
             <Image
               src={urlFor(image).url()}
               width={200}
               height={200}
-              alt='photo'
+              alt={`Main image ${image.name}`}
+              // alt='photo'
               className='h-full w-full object-cover object-center cursor-pointer'
-              onClick={() => handleSmallImageClick(image)}
+              onClick={() => handleSmallImageClick(image, idx)}
             />
           </div>
         ))}
